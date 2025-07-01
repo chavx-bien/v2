@@ -1,6 +1,6 @@
 extends Control
 
-@export var initial_level = "" # (String, FILE, "*.tscn")
+@export var initial_level = "Chavos.tscn" # (String, FILE, "*.tscn")
 
 func _ready():
 	grab_focus()

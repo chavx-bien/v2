@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" path="res://fonts/stats.tres" id="3"]
 [ext_resource type="StyleBox" uid="uid://bmwyr86qlg4lp" path="res://scenes/misc/stats.stylebox" id="4"]
 
+
 [node name="Stats" type="PanelContainer"]
 process_mode = 3
 visible = false

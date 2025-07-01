@@ -8,7 +8,7 @@ in the AssetLib if you want to make something more complex. Also it shares code 
 and probably both should extend some parent script
 """
 
-@export var WALK_SPEED: int = 350 # pixels per second
+@export var WALK_SPEED: int = 2000 # pixels per second
 @export var ROLL_SPEED: int = 1000 # pixels per second
 @export var hitpoints: int = 3
 
@@ -91,7 +91,7 @@ func _physics_process(_delta):
 			
 			target_speed *= WALK_SPEED
 			#linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
-			linear_vel = target_speed
+			linear_vel = target_speed*3
 			roll_direction = linear_vel.normalized()
 			
 			_update_facing()

@@ -1,0 +1,143 @@
+[gd_scene load_steps=14 format=4 uid="uid://b4rbdhcaof1tb"]
+
+[ext_resource type="PackedScene" uid="uid://c7q38g8chadkk" path="res://scenes/characters/Npc.tscn" id="1_6jth4"]
+[ext_resource type="PackedScene" uid="uid://dwu2tlrkse1kh" path="res://scenes/levels/misc/Quest.tscn" id="2_2xdhj"]
+[ext_resource type="PackedScene" uid="uid://ctd3mgp0s172q" path="res://scenes/characters/Player.tscn" id="3_1kt5c"]
+[ext_resource type="PackedScene" uid="uid://c1sxfd2xwflak" path="res://scenes/props/House.tscn" id="4_32e1i"]
+[ext_resource type="PackedScene" uid="uid://c2afoyvnjnhbt" path="res://scenes/props/MushroomBig.tscn" id="5_goyxb"]
+[ext_resource type="PackedScene" uid="uid://7tw65urnynmb" path="res://scenes/props/MushroomSmall.tscn" id="6_6d2lw"]
+[ext_resource type="PackedScene" uid="uid://bycx5snr304xk" path="res://scenes/characters/Enemy.tscn" id="7_lfcvx"]
+[ext_resource type="PackedScene" uid="uid://b6vnks6jly8ep" path="res://scenes/items/Item.tscn" id="8_irb4c"]
+[ext_resource type="Texture2D" uid="uid://dbqaoidwl5h7c" path="res://textures/Tilesets/tileset-256.png" id="9_2xdhj"]
+[ext_resource type="PackedScene" uid="uid://bggmu3ufhshyx" path="res://scenes/levels/misc/MusicTrack.tscn" id="9_mhk04"]
+[ext_resource type="PackedScene" uid="uid://deqgnj30xx13t" path="res://scenes/levels/misc/UI.tscn" id="10_d8hax"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kt5c"]
+texture = ExtResource("9_2xdhj")
+texture_region_size = Vector2i(256, 128)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 50)
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 50)
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 50)
+3:0/size_in_atlas = Vector2i(1, 2)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 50)
+0:2/size_in_atlas = Vector2i(1, 2)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, 50)
+1:2/size_in_atlas = Vector2i(1, 2)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, 50)
+2:2/size_in_atlas = Vector2i(1, 2)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, 50)
+3:2/size_in_atlas = Vector2i(1, 2)
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, 50)
+0:4/size_in_atlas = Vector2i(1, 2)
+0:4/0 = 0
+0:4/0/texture_origin = Vector2i(0, 40)
+1:4/size_in_atlas = Vector2i(1, 2)
+1:4/0 = 0
+1:4/0/texture_origin = Vector2i(0, 40)
+2:4/size_in_atlas = Vector2i(1, 2)
+2:4/0 = 0
+2:4/0/texture_origin = Vector2i(0, 40)
+3:4/size_in_atlas = Vector2i(1, 2)
+3:4/0 = 0
+0:6/size_in_atlas = Vector2i(1, 2)
+0:6/0 = 0
+0:6/0/texture_origin = Vector2i(0, 50)
+1:6/size_in_atlas = Vector2i(1, 2)
+1:6/0 = 0
+1:6/0/texture_origin = Vector2i(0, 60)
+
+[sub_resource type="TileSet" id="TileSet_6jth4"]
+tile_shape = 1
+tile_size = Vector2i(256, 128)
+sources/0 = SubResource("TileSetAtlasSource_1kt5c")
+
+[node name="Chavos" type="Node"]
+
+[node name="level" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(208.024, -128.355)
+
+[node name="Jorgito" parent="level" instance=ExtResource("1_6jth4")]
+visible = false
+position = Vector2(2062.51, 2957.82)
+character_name = "Jorgito"
+
+[node name="Quest" parent="level/Jorgito" instance=ExtResource("2_2xdhj")]
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "TLDR; bring me 3 Generic Items"
+pending_text = "You forgot? I want 3 Generic Items"
+
+[node name="Character" parent="level" instance=ExtResource("3_1kt5c")]
+position = Vector2(1509.86, 2579.34)
+
+[node name="house" parent="level" instance=ExtResource("4_32e1i")]
+visible = false
+position = Vector2(908.151, 406.509)
+to_scene = "res://scenes/levels/HouseInside.tscn"
+
+[node name="house_outside" type="Marker2D" parent="level/house" groups=["spawnpoints"]]
+position = Vector2(-2.12201, 173.199)
+
+[node name="mushroom_big" parent="level" instance=ExtResource("5_goyxb")]
+visible = false
+position = Vector2(2278.7, 2345.34)
+
+[node name="mushroom_small" parent="level" instance=ExtResource("6_6d2lw")]
+visible = false
+position = Vector2(1955.56, 2467.91)
+
+[node name="mushroom_small2" parent="level" instance=ExtResource("6_6d2lw")]
+visible = false
+position = Vector2(2546.13, 2601.62)
+
+[node name="enemy8" parent="level" instance=ExtResource("7_lfcvx")]
+visible = false
+position = Vector2(2446.6, 633.461)
+
+[node name="Item" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(1032.97, 1956.3)
+
+[node name="Item2" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(1234.96, 1710.6)
+item_type = "Magic Sword"
+
+[node name="Item3" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(969.666, 1659.36)
+item_type = "Coso"
+amount = 3
+
+[node name="Item6" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(2636.78, 2137.18)
+
+[node name="Item5" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(2838.76, 1891.49)
+item_type = "Magic Sword"
+
+[node name="Item4" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(2573.47, 1840.24)
+item_type = "Coso"
+amount = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="level"]
+texture_filter = 1
+position = Vector2(-208.024, 128.355)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAHABYAAAAAAAIAAAAHABQAAAABAAAAAAAHABIAAAABAAAAAAAHAAwAAAABAAAAAAAHAAQAAAABAAAAAAAIABQAAAABAAAAAAAIAAgAAAABAAAAAAAHAAIAAAACAAAAAAAHABAAAAACAAAAAAAIAAIAAAACAAAAAAAHAA4AAAADAAAAAAAHAAYAAAADAAAAAAAJAAIAAAADAAAAAAAKAAAAAAADAAAAAAAKAAIAAAAAAAIAAAAKAP//AAAAAAIAAAAKAP3/AAAAAAIAAAAKAPv/AAABAAIAAAAKAPr/AAABAAIAAAAJAPj/AAABAAIAAAAHAPf/AAABAAIAAAAGAPj/AAABAAIAAAD//wsAAAABAAIAAAD//wkAAAACAAIAAAD//wMAAAACAAIAAAACAPb/AAACAAIAAAADAPb/AAACAAIAAAD//wEAAAADAAIAAAAHAPj/AAADAAIAAAAIAPj/AAADAAIAAAAHABgAAAADAAIAAAAHABoAAAADAAIAAAAAAP7/AAADAAIAAAAAAPr/AAADAAIAAAAAAPf/AAADAAIAAAAKAPj/AAAAAAAAAAAIAPf/AAAAAAAAAAAFAPf/AAAAAAAAAAAEAPf/AAAAAAAAAAABAPb/AAAAAAAAAAD///3/AAAAAAAAAAAHABwAAAAAAAAAAAD//w0AAAAAAAAAAAD//wcAAAABAAAAAAD//wUAAAADAAAAAAADAPf/AAADAAAAAAACAPX/AAABAAQAAAAEAPj/AAACAAQAAAAFAPj/AAAAAAQAAAABAPX/AAAAAAQAAAAGAPf/AAAAAAQAAAAJAPf/AAABAAQAAAAIAAMAAAABAAQAAAAHAAMAAAABAAQAAAAJAAEAAAAAAAQAAAAHAAgAAAAAAAQAAAAHAAoAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_6jth4")
+
+[node name="music_track" parent="level" instance=ExtResource("9_mhk04")]
+music_track = "res://music/310-world-map-loop.ogg"
+
+[node name="UI" parent="." instance=ExtResource("10_d8hax")]

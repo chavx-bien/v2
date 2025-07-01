@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6vnks6jly8ep"]
+[gd_scene load_steps=9 format=3 uid="uid://b6vnks6jly8ep"]
 
 [ext_resource type="Texture2D" uid="uid://dswhkcoafxmtb" path="res://textures/item.png" id="1"]
 [ext_resource type="Script" uid="uid://dp46cm4emdbcc" path="res://scenes/items/Item.gd" id="2"]
@@ -152,6 +152,13 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_we3um"]
+_data = {
+&"collected": SubResource("2"),
+&"reset": SubResource("3"),
+&"spawn": SubResource("4")
+}
+
 [node name="Item" type="Area2D" groups=["items"]]
 script = ExtResource("2")
 
@@ -169,7 +176,7 @@ shape = SubResource("1")
 stream = ExtResource("3")
 
 [node name="anims" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_we3um")
+}
 autoplay = "spawn"
-anims/collected = SubResource("2")
-anims/reset = SubResource("3")
-anims/spawn = SubResource("4")

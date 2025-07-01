@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2sehpndnpyg5"]
+[gd_scene load_steps=7 format=3 uid="uid://d2sehpndnpyg5"]
 
 [ext_resource type="Script" uid="uid://c1xnul51lo4e7" path="res://singletons/Music.gd" id="1_wold4"]
+[ext_resource type="AudioStream" uid="uid://dmq112wy2q8cv" path="res://music/Chavos-Bien-8-bits.ogg" id="2_4jlp2"]
 
 [sub_resource type="Animation" id="2"]
 tracks/0/type = "value"
@@ -118,9 +119,11 @@ process_mode = 3
 script = ExtResource("1_wold4")
 
 [node name="A" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4jlp2")
 bus = &"Music"
 
 [node name="B" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4jlp2")
 volume_db = -30.0
 bus = &"Music"
 

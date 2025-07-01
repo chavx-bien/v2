@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b11fkjdfi4p5w" path="res://textures/misc/dialog_box.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://d0gd418kr1fg2" path="res://textures/misc/next_dialog_arrow.png" id="4"]
 
+
 [sub_resource type="Animation" id="1"]
 resource_name = "appear"
 length = 0.1
