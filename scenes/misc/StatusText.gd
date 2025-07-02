@@ -24,8 +24,11 @@ func _questlog_updated(quest_name, status):
 	_queue_message(txt)
 	pass
 
-func _inventory_updated(action, type, amount):
+func _inventory_updated(action, type, amount, ingrediente):
 	var txt
+	#match ingrediente:
+		#"Vaso": 
+		#	txt = "Dialogo Vaso"
 	match action:
 		"added":
 			txt = "Obtained %s x %s" % [type, amount]

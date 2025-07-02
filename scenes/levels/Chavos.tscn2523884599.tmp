@@ -136,32 +136,32 @@ position = Vector2(2546.13, 2601.62)
 visible = false
 position = Vector2(2446.6, 633.461)
 
-[node name="Vaso" parent="level" instance=ExtResource("8_irb4c")]
+[node name="Item" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(1032.97, 1956.3)
-item_type = "Generic Item"
-amount = 1
+item_type = null
+amount = null
 
-[node name="Coca" parent="level" instance=ExtResource("8_irb4c")]
+[node name="Item2" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(1234.96, 1710.6)
 item_type = "Magic Sword"
-amount = 1
+amount = null
 
-[node name="Hielo" parent="level" instance=ExtResource("8_irb4c")]
+[node name="Item3" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(969.666, 1659.36)
 item_type = "Coso"
 amount = 3
 
-[node name="Bacardi" parent="level" instance=ExtResource("8_irb4c")]
+[node name="Item6" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2636.78, 2137.18)
-item_type = "Generic Item"
-amount = 1
+item_type = null
+amount = null
 
-[node name="Mineral" parent="level" instance=ExtResource("8_irb4c")]
+[node name="Item5" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2838.76, 1891.49)
 item_type = "Magic Sword"
-amount = 1
+amount = null
 
-[node name="Flecha" parent="level" instance=ExtResource("8_irb4c")]
+[node name="Item4" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2573.47, 1840.24)
 item_type = "Coso"
 amount = 3

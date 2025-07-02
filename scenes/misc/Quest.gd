@@ -21,6 +21,7 @@ Otherwise you'll have to make a quest system a bit more complex.
 @export var initial_text = "TLDR; bring me 10 thingies" # (String, MULTILINE)
 @export var pending_text = "You forgot? I want 10 thingies" # (String, MULTILINE)
 @export var delivered_text = "Thank you! Here's your reward.." # (String, MULTILINE)
+@export var ingrediente = ""
 
 func process() -> String:
 	var quest_status = Quest.get_status(quest_name)
@@ -32,7 +33,7 @@ func process() -> String:
 			if Inventory.get_item(required_item) >= required_amount:
 				Inventory.remove_item(required_item, required_amount)
 				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-				Inventory.add_item(reward_item, reward_amount)
+				Inventory.add_item(reward_item, reward_amount, ingrediente)
 				return delivered_text
 			else:
 				return pending_text

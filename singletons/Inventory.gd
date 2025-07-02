@@ -7,7 +7,7 @@ It's just a dictionary where items are identified by a string key and hold an in
 
 # action can be 'added' some amount of some items is added and 'removed' when some amount
 # of some item is removed
-signal item_changed(action, type, amount)
+signal item_changed(action, type, amount, ingrediente)
 
 var inventory = {}
 
@@ -19,14 +19,14 @@ func get_item(type:String) -> int:
 		return 0
 
 
-func add_item(type:String, amount:int) -> bool:
+func add_item(type:String, amount:int, ingrediente:String) -> bool:
 	if inventory.has(type):
 		inventory[type] += amount
-		emit_signal("item_changed", "added", type, amount)
+		emit_signal("item_changed", "added", type, amount, ingrediente)
 		return true
 	else:
 		inventory[type] = amount
-		emit_signal("item_changed", "added", type, amount)
+		emit_signal("item_changed", "added", type, amount, ingrediente)
 		return true
 
 

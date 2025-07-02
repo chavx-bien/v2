@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://deqgnj30xx13t"]
+[gd_scene load_steps=12 format=3 uid="uid://deqgnj30xx13t"]
 
 [ext_resource type="PackedScene" uid="uid://dbal8eohv177g" path="res://scenes/misc/Dialog_box.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://h053h7nlwpuu" path="res://scenes/misc/Stats.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://iu0aegkhj8po" path="res://scenes/misc/StatusText.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://dvlbf7oprbm68" path="res://scenes/misc/Healthbar.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://dwn5qf313j5en" path="res://textures/misc/btn-roll.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dvjbkxvp6yxld" path="res://textures/misc/btn-interact.png" id="6"]
 [ext_resource type="Script" uid="uid://yih6po6dbi3s" path="res://scenes/misc/TouchInterface.gd" id="7"]
@@ -18,17 +17,12 @@ size = Vector2(60, 200)
 [node name="UI" type="CanvasLayer"]
 
 [node name="Dialog_box" parent="." instance=ExtResource("1")]
-anchors_preset = 12
-expand_mode = 1
 
 [node name="Stats" parent="." instance=ExtResource("2")]
 anchors_preset = 15
 
 [node name="Status_text" parent="." instance=ExtResource("3")]
 visible = false
-
-[node name="Healthbar" parent="." instance=ExtResource("4")]
-offset_right = 14.0
 
 [node name="TouchInterface" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)

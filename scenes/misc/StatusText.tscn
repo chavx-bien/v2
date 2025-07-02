@@ -3,7 +3,6 @@
 [ext_resource type="FontFile" path="res://fonts/stats.tres" id="1"]
 [ext_resource type="Script" uid="uid://8uy5yg0w7v2g" path="res://scenes/misc/StatusText.gd" id="2"]
 
-
 [sub_resource type="Animation" id="1"]
 resource_name = "update"
 tracks/0/type = "value"
