@@ -176,6 +176,5 @@ tile_map_data = PackedByteArray("AADr/2UAAAAAAAAAAADs/2YAAAAAAAAAAADs/2cAAAAAAAA
 tile_set = SubResource("TileSet_goyxb")
 
 [node name="UI" parent="." instance=ExtResource("10_d8hax")]
-follow_viewport_enabled = true
 
 [node name="music_track" parent="." instance=ExtResource("9_mhk04")]
