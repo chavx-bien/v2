@@ -207,15 +207,20 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -173.0
-offset_bottom = 1.00024
+offset_left = 35.0
+offset_top = 710.0
+offset_right = 35.0
+offset_bottom = 884.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 6
 script = ExtResource("2")
 
 [node name="dialog_text" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 54.0
