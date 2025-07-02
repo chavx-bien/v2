@@ -17,6 +17,10 @@ size = Vector2(60, 200)
 [node name="UI" type="CanvasLayer"]
 
 [node name="Dialog_box" parent="." instance=ExtResource("1")]
+offset_top = 568.0
+offset_bottom = 742.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Stats" parent="." instance=ExtResource("2")]
 anchors_preset = 15
@@ -26,6 +30,7 @@ visible = false
 
 [node name="TouchInterface" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(0, 741)
 script = ExtResource("7")
 
 [node name="interact" type="TouchScreenButton" parent="TouchInterface"]
