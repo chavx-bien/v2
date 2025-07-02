@@ -42,9 +42,7 @@ func _on_Item_body_entered(body):
 			"Mineral":
 				Dialogs.show_dialog("Mineral", "Mineral")
 				Dialogs.dialog_ended
-			"Flecha":
-				Dialogs.show_dialog("Flecha", "Flecha")
-				Dialogs.dialog_ended
+					
 		#Dialogs.show_dialog("", "")
 		#Dialogs.dialog_ended
 		Inventory.add_item(ingrediente)

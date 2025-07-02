@@ -5,6 +5,9 @@
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -15,19 +18,16 @@ cache/0/16/0/scale = 1.0
 script = ExtResource("2")
 
 [node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="stats" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 16.0
 offset_right = 285.0
 offset_bottom = 211.0
-theme_override_fonts/font = SubResource("1")
 theme_override_colors/font_color = Color(0.803922, 0.0784314, 0.0784314, 1)
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_fonts/font = SubResource("1")

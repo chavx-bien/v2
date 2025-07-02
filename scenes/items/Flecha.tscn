@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bhgxs4f8i6n55"]
 
-[ext_resource type="Script" uid="uid://dp46cm4emdbcc" path="res://scenes/items/Item.gd" id="1_vij0f"]
+[ext_resource type="Script" uid="uid://b1xsdosyyard" path="res://scenes/items/flecha.gd" id="1_vij0f"]
 [ext_resource type="Texture2D" uid="uid://dswhkcoafxmtb" path="res://textures/item.png" id="2_x0n2b"]
 [ext_resource type="AudioStream" uid="uid://bkqm1wbxr2gg5" path="res://sounds/item_collected.wav" id="3_mqx8g"]
 
@@ -159,7 +159,7 @@ _data = {
 &"spawn": SubResource("4")
 }
 
-[node name="Item" type="Area2D" groups=["items"]]
+[node name="Flecha" type="Area2D" groups=["items"]]
 position = Vector2(2630, 2100)
 script = ExtResource("1_vij0f")
 
@@ -180,3 +180,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_we3um")
 }
 autoplay = "spawn"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
