@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://di3mby3x5xj3i"
 path.s3tc="res://.godot/imported/Pisos.png-8cfdd3b09719cb32ef97269d7870bde7.s3tc.ctex"
+path.etc2="res://.godot/imported/Pisos.png-8cfdd3b09719cb32ef97269d7870bde7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/Tilesets/Pisos.png"
-dest_files=["res://.godot/imported/Pisos.png-8cfdd3b09719cb32ef97269d7870bde7.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pisos.png-8cfdd3b09719cb32ef97269d7870bde7.s3tc.ctex", "res://.godot/imported/Pisos.png-8cfdd3b09719cb32ef97269d7870bde7.etc2.ctex"]
 
 [params]
 

@@ -26,7 +26,6 @@ visible = false
 
 [node name="TouchInterface" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
-y_sort_enabled = true
 script = ExtResource("7")
 
 [node name="interact" type="TouchScreenButton" parent="TouchInterface"]
