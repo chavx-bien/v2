@@ -160,7 +160,7 @@ _data = {
 }
 
 [node name="Item" type="Area2D" groups=["items"]]
-position = Vector2(2137.76, 1891.49)
+position = Vector2(2630, 2100)
 script = ExtResource("1_vij0f")
 
 [node name="sprite" type="Sprite2D" parent="."]

@@ -25,8 +25,8 @@ func add_item(ingrediente:String) -> bool:
 	if inventory == 5:
 		print("Trigger Scene")
 		
-		var object = flecha.instance()
-		call_deferred("add_child",object)
+		var object = flecha.instantiate()
+		get_parent().add_child(object)
 	print(inventory)
 	return true
 	#if inventory.has(type):
