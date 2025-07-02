@@ -47,6 +47,6 @@ func _on_Item_body_entered(body):
 				Dialogs.dialog_ended
 		#Dialogs.show_dialog("", "")
 		#Dialogs.dialog_ended
-		Inventory.add_item(item_type, amount, ingrediente)
+		Inventory.add_item(ingrediente)
 		$anims.play("collected")
 	pass

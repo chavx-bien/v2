@@ -9,37 +9,46 @@ It's just a dictionary where items are identified by a string key and hold an in
 # of some item is removed
 signal item_changed(action, type, amount, ingrediente)
 
-var inventory = {}
+@export var inventory: int = 0
+var flecha = preload("res://scenes/items/Flecha.tscn")
 
 
-func get_item(type:String) -> int:
-	if inventory.has(type):
-		return inventory[type]
-	else:
-		return 0
+#func get_item(type:String) -> int:
+	#if inventory.has(type):
+		#return inventory[type]
+	#else:
+		#return 0
 
 
-func add_item(type:String, amount:int, ingrediente:String) -> bool:
-	if inventory.has(type):
-		inventory[type] += amount
-		emit_signal("item_changed", "added", type, amount, ingrediente)
-		return true
-	else:
-		inventory[type] = amount
-		emit_signal("item_changed", "added", type, amount, ingrediente)
-		return true
+func add_item(ingrediente:String) -> bool:
+	inventory += 1
+	if inventory == 5:
+		print("Trigger Scene")
+		
+		var object = flecha.instance()
+		call_deferred("add_child",object)
+	print(inventory)
+	return true
+	#if inventory.has(type):
+		#inventory[type] += amount
+		#emit_signal("item_changed", "added", type, amount, ingrediente)
+		#return true
+	#else:
+		#inventory[type] = amount
+		#emit_signal("item_changed", "added", type, amount, ingrediente)
+		#return true
 
 
-func remove_item(type:String, amount:int) -> bool:
-	if inventory.has(type) and inventory[type] >= amount:
-		inventory[type] -= amount
-		if inventory[type] == 0:
-			inventory.erase(type)
-		emit_signal("item_changed", "removed", type, amount)
-		return true
-	else:
-		return false
+#func remove_item(type:String, amount:int) -> bool:
+	#if inventory.has(type) and inventory[type] >= amount:
+		#inventory[type] -= amount
+		#if inventory[type] == 0:
+			#inventory.erase(type)
+		#emit_signal("item_changed", "removed", type, amount)
+		#return true
+	#else:
+		#return false
 
 
-func list() -> Dictionary:
-	return inventory.duplicate()
+#func list() -> Dictionary:
+	#return inventory.duplicate()

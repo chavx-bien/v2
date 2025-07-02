@@ -11,14 +11,14 @@ func _ready():
 Really simple save file implementation. Just saving some variables to a dictionary
 """
 func save_game(): 
-	var savefile = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	var save_dict = {}
-	save_dict.spawnpoint = spawnpoint
-	save_dict.current_level = current_level
-	save_dict.inventory = Inventory.list()
-	save_dict.quests = Quest.get_quest_list()
-	savefile.store_line(JSON.stringify(save_dict))
-	savefile.close()
+	#var savefile = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	#var save_dict = {}
+	#save_dict.spawnpoint = spawnpoint
+	#save_dict.current_level = current_level
+	#save_dict.inventory = Inventory.list()
+	#save_dict.quests = Quest.get_quest_list()
+	#savefile.store_line(JSON.stringify(save_dict))
+	#savefile.close()
 	pass
 
 """

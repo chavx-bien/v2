@@ -157,6 +157,11 @@ position = Vector2(2636.78, 2137.18)
 position = Vector2(2838.76, 1891.49)
 item_type = "Magic Sword"
 
+[node name="Flecha" parent="level" instance=ExtResource("8_irb4c")]
+position = Vector2(2573.47, 1840.24)
+item_type = "Coso"
+amount = 3
+
 [node name="Edificios" type="TileMapLayer" parent="level"]
 texture_filter = 1
 position = Vector2(-208.024, 128.355)

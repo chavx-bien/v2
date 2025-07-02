@@ -24,18 +24,19 @@ Otherwise you'll have to make a quest system a bit more complex.
 @export var ingrediente = ""
 
 func process() -> String:
-	var quest_status = Quest.get_status(quest_name)
-	match quest_status:
-		Quest.STATUS.NONEXISTENT:
-			Quest.accept_quest(quest_name)
-			return initial_text
-		Quest.STATUS.STARTED:
-			if Inventory.get_item(required_item) >= required_amount:
-				Inventory.remove_item(required_item, required_amount)
-				Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
-				Inventory.add_item(reward_item, reward_amount, ingrediente)
-				return delivered_text
-			else:
-				return pending_text
-		_:
-			return ""
+	return ""
+	#var quest_status = Quest.get_status(quest_name)
+	#match quest_status:
+		#Quest.STATUS.NONEXISTENT:
+			#Quest.accept_quest(quest_name)
+			#return initial_text
+		#Quest.STATUS.STARTED:
+			#if Inventory.get_item(required_item) >= required_amount:
+				#Inventory.remove_item(required_item, required_amount)
+				#Quest.change_status(quest_name, Quest.STATUS.COMPLETE)
+				#Inventory.add_item(reward_item, reward_amount, ingrediente)
+				#return delivered_text
+			#else:
+				#return pending_text
+		#_:
+			#return ""
