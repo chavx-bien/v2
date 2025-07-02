@@ -138,13 +138,10 @@ position = Vector2(2446.6, 633.461)
 
 [node name="Vaso" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(1032.97, 1956.3)
-item_type = "Generic Item"
-amount = 1
 
 [node name="Coca" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(1234.96, 1710.6)
 item_type = "Magic Sword"
-amount = 1
 
 [node name="Hielo" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(969.666, 1659.36)
@@ -153,13 +150,10 @@ amount = 3
 
 [node name="Bacardi" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2636.78, 2137.18)
-item_type = "Generic Item"
-amount = 1
 
 [node name="Mineral" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2838.76, 1891.49)
 item_type = "Magic Sword"
-amount = 1
 
 [node name="Flecha" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2573.47, 1840.24)
@@ -182,5 +176,6 @@ tile_map_data = PackedByteArray("AADr/2UAAAAAAAAAAADs/2YAAAAAAAAAAADs/2cAAAAAAAA
 tile_set = SubResource("TileSet_goyxb")
 
 [node name="UI" parent="." instance=ExtResource("10_d8hax")]
+follow_viewport_enabled = true
 
 [node name="music_track" parent="." instance=ExtResource("9_mhk04")]
