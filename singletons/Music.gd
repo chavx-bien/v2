@@ -5,7 +5,7 @@ Music singleton that handles crossfading when a new song starts
 and applies a low pass filter when the game is paused. Nothing too wise
 """
 
-var current_track = ""
+var current_track = "a"
 
 var music_bus
 

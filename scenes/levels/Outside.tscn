@@ -18,7 +18,6 @@ y_sort_enabled = true
 position = Vector2(208.024, -128.355)
 
 [node name="Jorgito" parent="level" instance=ExtResource("13")]
-visible = false
 position = Vector2(2062.51, 2957.82)
 character_name = "Jorgito"
 
@@ -32,7 +31,6 @@ pending_text = "You forgot? I want 3 Generic Items"
 position = Vector2(1509.86, 2579.34)
 
 [node name="house" parent="level" instance=ExtResource("5")]
-visible = false
 position = Vector2(908.151, 406.509)
 to_scene = "res://scenes/levels/HouseInside.tscn"
 
@@ -40,19 +38,15 @@ to_scene = "res://scenes/levels/HouseInside.tscn"
 position = Vector2(-2.12201, 173.199)
 
 [node name="mushroom_big" parent="level" instance=ExtResource("1")]
-visible = false
-position = Vector2(2278.7, 2345.34)
+position = Vector2(1333.98, 2467.35)
 
 [node name="mushroom_small" parent="level" instance=ExtResource("9")]
-visible = false
 position = Vector2(1955.56, 2467.91)
 
 [node name="mushroom_small2" parent="level" instance=ExtResource("9")]
-visible = false
 position = Vector2(2546.13, 2601.62)
 
 [node name="enemy8" parent="level" instance=ExtResource("4")]
-visible = false
 position = Vector2(2446.6, 633.461)
 
 [node name="Item" parent="level" instance=ExtResource("12")]

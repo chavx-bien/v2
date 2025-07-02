@@ -3,20 +3,69 @@
 [ext_resource type="FontFile" path="res://fonts/dialog.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://cb2u7ijtdnnyg" path="res://textures/menu/game_title.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://ck0bibv77mxh2" path="res://textures/menu/bg.png" id="3"]
-[ext_resource type="Script" uid="uid://db2x1weh4qr1e" path="res://scenes/levels/Menu.gd" id="4"]
+
+[sub_resource type="GDScript" id="GDScript_7re23"]
+script/source = "extends Control
+
+@export var initial_level = (\"res://scenes/levels/Chavos.tscn\") # (String, FILE, \"*.tscn\")
+
+func _ready():
+	grab_focus()
+	if Globals.load_game(true):
+		$continue.disabled = false
+	else:
+		$continue.disabled = true
+
+
+func _on_continue_pressed():
+	Globals.load_game()
+	if Globals.current_level != \"\":
+		if get_tree().change_scene_to_file(Globals.current_level) != OK:
+			push_error(\"Error changing scenes\")
+	else:
+		push_error(\"Error: current_level shouldn't be empty\")
+	pass # Replace with function body.
+
+
+func _on_new_game_pressed():
+	if initial_level != \"\":
+		Globals.current_level = initial_level
+		if Globals.save_game() == false:
+			push_error(\"Error saving game\")
+		var err = get_tree().change_scene_to_file(initial_level)
+		if err != OK:
+			push_error(\"Error changing scene: %s\" % err)
+	else:
+		push_error(\"Error: initial_level shouldn't be empty\")
+		
+	pass # Replace with function body.
+
+
+
+
+func _on_quit_pressed():
+	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_controls_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/levels/Controls.tscn\")
+	pass # Replace with function body.
+"
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_left = NodePath("quit")
 focus_neighbor_top = NodePath("continue")
 focus_neighbor_right = NodePath("credits")
 focus_neighbor_bottom = NodePath("new_game")
 focus_mode = 2
-script = ExtResource("4")
-initial_level = "res://scenes/levels/Outside.tscn"
+script = SubResource("GDScript_7re23")
 
 [node name="BG" type="TextureRect" parent="."]
 layout_mode = 0
