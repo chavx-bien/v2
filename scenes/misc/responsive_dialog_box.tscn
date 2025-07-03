@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbal8eohv177g"]
+[gd_scene load_steps=9 format=3 uid="uid://8nuu2ciers4t"]
 
-[ext_resource type="FontFile" path="res://fonts/dialog.tres" id="1"]
-[ext_resource type="Script" uid="uid://yqkm821c5ug6" path="res://scenes/misc/Dialog_box.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://b11fkjdfi4p5w" path="res://textures/misc/dialog_box.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://d0gd418kr1fg2" path="res://textures/misc/next_dialog_arrow.png" id="4"]
+[ext_resource type="FontFile" path="res://fonts/dialog.tres" id="1_iqxdw"]
+[ext_resource type="Texture2D" uid="uid://d0gd418kr1fg2" path="res://textures/misc/next_dialog_arrow.png" id="2_k27c5"]
+[ext_resource type="Texture2D" uid="uid://b11fkjdfi4p5w" path="res://textures/misc/dialog_box.png" id="3_nikhq"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "appear"
@@ -202,79 +201,47 @@ _data = {
 &"wait": SubResource("4")
 }
 
-[node name="Dialog_box" type="TextureRect"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -608.0
-offset_right = 800.0
-offset_bottom = -282.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("3")
-script = ExtResource("2")
-metadata/_edit_use_anchors_ = true
-
-[node name="dialog_text" type="Label" parent="."]
-layout_mode = 1
+[node name="Control" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 54.0
-offset_top = 45.0
-offset_right = -58.0
-offset_bottom = -38.0
+offset_right = -207.0
+offset_bottom = -365.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1")
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In semper molestie erat, id aliquam nulla iaculis a. Suspendisse consectetur vehicula consequat. Integer mollis libero sed sem convallis, vitae rutrum metus dapibus. Phasellus purus quam, euismod id diam ut, semper sagittis ipsum. Aenean vel mollis lectus, quis placerat eros. Donec elementum vestibulum augue dignissim vehicula. Mauris ultricies lacus id odio aliquet, eu iaculis urna sodales. "
-clip_text = true
 
-[node name="next_dialog_arrow" type="TextureRect" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -121.545
-offset_top = -52.964
-offset_right = -66.5452
-offset_bottom = -6.96399
-texture = ExtResource("4")
+offset_left = 79.0
+offset_top = 173.0
+offset_right = 916.0
+offset_bottom = 544.0
+
+[node name="next_dialog_arrow" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_k27c5")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="nametag" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 1.0
-offset_right = 524.0
-offset_bottom = 45.0
-texture = ExtResource("3")
+[node name="nametag" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3_nikhq")
 expand_mode = 1
 
-[node name="label" type="Label" parent="nametag"]
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -227.5
-offset_top = -21.0
-offset_right = 227.5
-offset_bottom = 22.0
+[node name="label" type="Label" parent="CenterContainer/nametag"]
+layout_mode = 1
+offset_left = -197.0
+offset_top = -84.0
+offset_right = 333.0
+offset_bottom = 98.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1")
+theme_override_fonts/font = ExtResource("1_iqxdw")
 text = "Character Name"
 horizontal_alignment = 1
 clip_text = true
 
-[node name="anims" type="AnimationPlayer" parent="."]
+[node name="anims" type="AnimationPlayer" parent="CenterContainer"]
 libraries = {
 &"": SubResource("AnimationLibrary_ktltf")
 }
