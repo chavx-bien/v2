@@ -17,10 +17,11 @@ size = Vector2(60, 200)
 [node name="UI" type="CanvasLayer"]
 
 [node name="Dialog_box" parent="." instance=ExtResource("1")]
-offset_left = 6.0
-offset_top = 840.0
-offset_right = 774.0
-offset_bottom = 1166.0
+offset_left = 3.0
+offset_top = 837.0
+offset_right = 771.0
+offset_bottom = 1163.0
+size_flags_horizontal = 1
 
 [node name="Stats" parent="." instance=ExtResource("2")]
 anchors_preset = 15
