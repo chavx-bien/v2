@@ -8,19 +8,22 @@
 [ext_resource type="Script" uid="uid://yih6po6dbi3s" path="res://scenes/misc/TouchInterface.gd" id="7"]
 [ext_resource type="BitMap" uid="uid://btqy1wgyliysp" path="res://textures/misc/btn-mask.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://v7wbqrihcdka" path="res://textures/misc/btn-slash.png" id="9"]
-[ext_resource type="Texture2D" uid="uid://bf8tm281iqk3u" path="res://textures/misc/arrow.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://3r768ih03vtg" path="res://textures/flecha2.png" id="10_p0e8p"]
 [ext_resource type="Texture2D" uid="uid://baqod7bulkenk" path="res://textures/misc/btn-stats.png" id="11"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(60, 200)
+size = Vector2(52, 17)
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="Dialog_box" parent="." instance=ExtResource("1")]
-offset_left = 21.0
-offset_top = 374.0
-offset_right = 21.0
-offset_bottom = 548.0
+anchor_left = -0.333333
+anchor_top = 0.682099
+anchor_right = 0.305556
+offset_left = 18.0
+offset_top = 692.0
+offset_right = 18.0
+offset_bottom = 866.0
 
 [node name="Stats" parent="." instance=ExtResource("2")]
 anchors_preset = 15
@@ -34,6 +37,7 @@ position = Vector2(6, 1213)
 script = ExtResource("7")
 
 [node name="interact" type="TouchScreenButton" parent="TouchInterface"]
+visible = false
 position = Vector2(875.764, 220.071)
 texture_normal = ExtResource("6")
 bitmask = ExtResource("8")
@@ -42,6 +46,7 @@ visibility_mode = 1
 
 [node name="stats" type="TouchScreenButton" parent="TouchInterface"]
 process_mode = 3
+visible = false
 position = Vector2(912.494, 3.77242)
 texture_normal = ExtResource("11")
 bitmask = ExtResource("8")
@@ -49,6 +54,7 @@ action = "pause"
 visibility_mode = 1
 
 [node name="roll" type="TouchScreenButton" parent="TouchInterface"]
+visible = false
 position = Vector2(706.4, 450.694)
 texture_normal = ExtResource("5")
 bitmask = ExtResource("8")
@@ -57,6 +63,7 @@ action = "roll"
 visibility_mode = 1
 
 [node name="slash" type="TouchScreenButton" parent="TouchInterface"]
+visible = false
 position = Vector2(816.582, 336.136)
 texture_normal = ExtResource("9")
 bitmask = ExtResource("8")
@@ -65,35 +72,43 @@ action = "attack"
 visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="TouchInterface"]
-position = Vector2(176.899, 410.258)
-texture_normal = ExtResource("10")
+texture_filter = 1
+position = Vector2(167, 456)
+rotation = 4.71239
+scale = Vector2(4, 4)
+texture_normal = ExtResource("10_p0e8p")
 shape = SubResource("1")
 passby_press = true
 action = "move_right"
 visibility_mode = 1
 
 [node name="up" type="TouchScreenButton" parent="TouchInterface"]
-position = Vector2(105.679, 427.331)
-rotation = -1.5708
-texture_normal = ExtResource("10")
+texture_filter = 1
+position = Vector2(163, 388)
+rotation = 3.14159
+scale = Vector2(4, 4)
+texture_normal = ExtResource("10_p0e8p")
 shape = SubResource("1")
 passby_press = true
 action = "move_up"
 visibility_mode = 1
 
 [node name="left" type="TouchScreenButton" parent="TouchInterface"]
-position = Vector2(123.46, 497.427)
-rotation = -3.14159
-texture_normal = ExtResource("10")
+texture_filter = 1
+position = Vector2(95, 392)
+rotation = 1.5708
+scale = Vector2(4, 4)
+texture_normal = ExtResource("10_p0e8p")
 shape = SubResource("1")
 passby_press = true
 action = "move_left"
 visibility_mode = 1
 
 [node name="down" type="TouchScreenButton" parent="TouchInterface"]
-position = Vector2(193.923, 480.742)
-rotation = 1.5708
-texture_normal = ExtResource("10")
+texture_filter = 1
+position = Vector2(99, 460)
+scale = Vector2(4, 4)
+texture_normal = ExtResource("10_p0e8p")
 shape = SubResource("1")
 passby_press = true
 action = "move_down"

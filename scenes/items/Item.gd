@@ -28,19 +28,19 @@ func _on_Item_body_entered(body):
 		body_entered.disconnect(_on_Item_body_entered)
 		match ingrediente:
 			"Vaso":
-				Dialogs.show_dialog("Vaso", "Vaso")
+				Dialogs.show_dialog("Vaso muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
 				Dialogs.dialog_ended
 			"Coca":
-				Dialogs.show_dialog("Coca", "Coca")
+				Dialogs.show_dialog("Coca muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
 				Dialogs.dialog_ended
 			"Hielo":
-				Dialogs.show_dialog("Hielo", "Hielo")
+				Dialogs.show_dialog("Hielo muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
 				Dialogs.dialog_ended
 			"Bacardi":
-				Dialogs.show_dialog("Bacardi", "Bacardi")
+				Dialogs.show_dialog("Bacardi muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
 				Dialogs.dialog_ended
 			"Mineral":
-				Dialogs.show_dialog("Mineral", "Mineral")
+				Dialogs.show_dialog("Mineral muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
 				Dialogs.dialog_ended
 					
 		#Dialogs.show_dialog("", "")

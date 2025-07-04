@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b4rbdhcaof1tb"]
+[gd_scene load_steps=26 format=4 uid="uid://b4rbdhcaof1tb"]
 
 [ext_resource type="PackedScene" uid="uid://c7q38g8chadkk" path="res://scenes/characters/Npc.tscn" id="1_6jth4"]
 [ext_resource type="PackedScene" uid="uid://dwu2tlrkse1kh" path="res://scenes/misc/Quest.tscn" id="2_2xdhj"]
@@ -10,8 +10,83 @@
 [ext_resource type="PackedScene" uid="uid://b6vnks6jly8ep" path="res://scenes/items/Item.tscn" id="8_irb4c"]
 [ext_resource type="Texture2D" uid="uid://dbqaoidwl5h7c" path="res://textures/Tilesets/tileset-256.png" id="9_2xdhj"]
 [ext_resource type="PackedScene" uid="uid://bggmu3ufhshyx" path="res://scenes/misc/MusicTrack.tscn" id="9_mhk04"]
+[ext_resource type="Texture2D" uid="uid://drkvv5b0473tk" path="res://textures/ITEMS/VASO.png" id="10_32e1i"]
 [ext_resource type="PackedScene" uid="uid://deqgnj30xx13t" path="res://scenes/misc/UI.tscn" id="10_d8hax"]
 [ext_resource type="Texture2D" uid="uid://di3mby3x5xj3i" path="res://textures/Tilesets/Pisos.png" id="11_1kt5c"]
+[ext_resource type="Texture2D" uid="uid://ydmu1hjc7w1w" path="res://textures/ITEMS/COCA.png" id="11_goyxb"]
+[ext_resource type="Texture2D" uid="uid://b34nks4iyas5p" path="res://textures/ITEMS/HIELO.png" id="12_irb4c"]
+[ext_resource type="Texture2D" uid="uid://585cjf5rrdkx" path="res://textures/ITEMS/BACARDI.png" id="13_mhk04"]
+[ext_resource type="Texture2D" uid="uid://cdj1jdoiglnxu" path="res://textures/ITEMS/MINERAL.png" id="14_d8hax"]
+
+[sub_resource type="Environment" id="Environment_goyxb"]
+background_mode = 1
+background_color = Color(0.760831, 0, 0.255324, 1)
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.81092, 0.0920383, 0.315687, 1)
+glow_enabled = true
+glow_intensity = 1.24
+
+[sub_resource type="Animation" id="Animation_6d2lw"]
+resource_name = "UpDown"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -33), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2/PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.256667, 0.5, 0.733333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.502468, 0.46182, 1, 1), Color(0.845197, 0.00194544, 0.998009, 1), Color(0.502468, 0.46182, 1, 1), Color(0.845197, 0.00194544, 0.998009, 1), Color(0.502468, 0.46182, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lfcvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2/PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.502468, 0.46182, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_irb4c"]
+_data = {
+&"RESET": SubResource("Animation_lfcvx"),
+&"UpDown": SubResource("Animation_6d2lw")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kt5c"]
 texture = ExtResource("9_2xdhj")
@@ -99,6 +174,14 @@ sources/0 = SubResource("TileSetAtlasSource_32e1i")
 y_sort_enabled = true
 position = Vector2(208.024, -128.355)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="level"]
+environment = SubResource("Environment_goyxb")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="level/WorldEnvironment"]
+color = Color(0.932489, 0, 0.37672, 1)
+energy = 0.4
+blend_mode = 2
+
 [node name="Jorgito" parent="level" instance=ExtResource("1_6jth4")]
 visible = false
 position = Vector2(2062.51, 2957.82)
@@ -140,22 +223,142 @@ position = Vector2(2446.6, 633.461)
 
 [node name="Vaso" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(1032.97, 1956.3)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="level/Vaso"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("10_32e1i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level/Vaso/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_irb4c")
+}
+autoplay = "UpDown"
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/Vaso/Sprite2D"]
+texture_filter = 1
+texture = ExtResource("10_32e1i")
+
+[node name="PointLight2D" type="PointLight2D" parent="level/Vaso/Sprite2D/Sprite2D2"]
+texture_filter = 1
+color = Color(0.502468, 0.46182, 1, 1)
+energy = 2.53
+blend_mode = 2
+texture = ExtResource("10_32e1i")
+texture_scale = 1.1
 
 [node name="Coca" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(1234.96, 1710.6)
+scale = Vector2(0.5, 0.5)
 item_type = "Magic Sword"
+
+[node name="Sprite2D" type="Sprite2D" parent="level/Coca"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("11_goyxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level/Coca/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_irb4c")
+}
+autoplay = "UpDown"
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/Coca/Sprite2D"]
+texture_filter = 1
+texture = ExtResource("11_goyxb")
+
+[node name="PointLight2D" type="PointLight2D" parent="level/Coca/Sprite2D/Sprite2D2"]
+texture_filter = 1
+color = Color(0.502468, 0.46182, 1, 1)
+energy = 2.53
+blend_mode = 2
+texture = ExtResource("11_goyxb")
+texture_scale = 1.1
 
 [node name="Hielo" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(969.666, 1659.36)
+scale = Vector2(0.5, 0.5)
 item_type = "Coso"
 amount = 3
 
+[node name="Sprite2D" type="Sprite2D" parent="level/Hielo"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("12_irb4c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level/Hielo/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_irb4c")
+}
+autoplay = "UpDown"
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/Hielo/Sprite2D"]
+texture_filter = 1
+texture = ExtResource("12_irb4c")
+
+[node name="PointLight2D" type="PointLight2D" parent="level/Hielo/Sprite2D/Sprite2D2"]
+texture_filter = 1
+color = Color(0.502468, 0.46182, 1, 1)
+energy = 2.53
+blend_mode = 2
+texture = ExtResource("12_irb4c")
+texture_scale = 1.1
+
 [node name="Bacardi" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2636.78, 2137.18)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="level/Bacardi"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("13_mhk04")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level/Bacardi/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_irb4c")
+}
+autoplay = "UpDown"
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/Bacardi/Sprite2D"]
+texture_filter = 1
+texture = ExtResource("13_mhk04")
+
+[node name="PointLight2D" type="PointLight2D" parent="level/Bacardi/Sprite2D/Sprite2D2"]
+texture_filter = 1
+color = Color(0.502468, 0.46182, 1, 1)
+energy = 2.53
+blend_mode = 2
+texture = ExtResource("13_mhk04")
+texture_scale = 1.1
 
 [node name="Mineral" parent="level" instance=ExtResource("8_irb4c")]
 position = Vector2(2838.76, 1891.49)
+scale = Vector2(0.5, 0.5)
 item_type = "Magic Sword"
+
+[node name="Sprite2D" type="Sprite2D" parent="level/Mineral"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("14_d8hax")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level/Mineral/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_irb4c")
+}
+autoplay = "UpDown"
+
+[node name="Sprite2D2" type="Sprite2D" parent="level/Mineral/Sprite2D"]
+texture_filter = 1
+texture = ExtResource("14_d8hax")
+
+[node name="PointLight2D" type="PointLight2D" parent="level/Mineral/Sprite2D/Sprite2D2"]
+texture_filter = 1
+color = Color(0.502468, 0.46182, 1, 1)
+energy = 2.53
+blend_mode = 2
+texture = ExtResource("14_d8hax")
+texture_scale = 1.1
 
 [node name="Edificios" type="TileMapLayer" parent="level"]
 texture_filter = 1

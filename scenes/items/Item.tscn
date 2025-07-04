@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6vnks6jly8ep"]
+[gd_scene load_steps=8 format=3 uid="uid://b6vnks6jly8ep"]
 
-[ext_resource type="Texture2D" uid="uid://dswhkcoafxmtb" path="res://textures/item.png" id="1"]
 [ext_resource type="Script" uid="uid://dp46cm4emdbcc" path="res://scenes/items/Item.gd" id="2"]
 [ext_resource type="AudioStream" uid="uid://bkqm1wbxr2gg5" path="res://sounds/item_collected.wav" id="3"]
 
@@ -164,8 +163,8 @@ script = ExtResource("2")
 
 [node name="sprite" type="Sprite2D" parent="."]
 visible = false
+texture_filter = 1
 scale = Vector2(1.72, 0.159999)
-texture = ExtResource("1")
 offset = Vector2(0.36261, -19.2809)
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
