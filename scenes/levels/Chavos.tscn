@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b4rbdhcaof1tb"]
+[gd_scene load_steps=38 format=4 uid="uid://b4rbdhcaof1tb"]
 
 [ext_resource type="PackedScene" uid="uid://ctd3mgp0s172q" path="res://scenes/characters/Player.tscn" id="3_1kt5c"]
 [ext_resource type="PackedScene" uid="uid://b6vnks6jly8ep" path="res://scenes/items/Item.tscn" id="8_irb4c"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://585cjf5rrdkx" path="res://textures/ITEMS/BACARDI.png" id="13_mhk04"]
 [ext_resource type="Texture2D" uid="uid://d3qqjiutts0yy" path="res://textures/Tilesets/tileset-64.png" id="14_6d2lw"]
 [ext_resource type="Texture2D" uid="uid://cdj1jdoiglnxu" path="res://textures/ITEMS/MINERAL.png" id="14_d8hax"]
+[ext_resource type="Texture2D" uid="uid://dmfsjhno6h7hs" path="res://textures/bandaderock.png" id="15_lfcvx"]
+[ext_resource type="Script" uid="uid://dj05j25cuionx" path="res://scenes/levels/npc.gd" id="16_mhk04"]
+[ext_resource type="Texture2D" uid="uid://bk6e0oqd2atu4" path="res://textures/Sprite-Sheet-Final.png" id="17_d8hax"]
 [ext_resource type="Texture2D" uid="uid://bufo6a8bnmioa" path="res://textures/Tilesets/tileset-128.png" id="17_mhk04"]
 
 [sub_resource type="Environment" id="Environment_goyxb"]
@@ -292,7 +295,49 @@ tile_shape = 1
 tile_size = Vector2i(64, 32)
 sources/0 = SubResource("TileSetAtlasSource_lfcvx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv8sl"]
+size = Vector2(117, 63.355)
+
+[sub_resource type="Animation" id="Animation_ym578"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ghfst"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 49, 50, 51, 52, 53, 67, 68, 69, 70]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iog3o"]
+_data = {
+&"RESET": SubResource("Animation_ym578"),
+&"idle": SubResource("Animation_ghfst")
+}
+
 [node name="Chavos" type="Node"]
+
+[node name="Game Manager" type="Node" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("10_d8hax")]
 offset = Vector2(0, 440)
@@ -512,8 +557,36 @@ position = Vector2(-14, 1306.35)
 tile_map_data = PackedByteArray("AAAKABUAAAADAAIAAAAWAAUAAAADAAIAAAAQAA4AAAADAAQAAAAQAA0AAAADAAQAAAARAA4AAAAAAAQAAAARAA0AAAADAAQAAAASAA4AAAAAAAQAAAAOABoAAAACAAQAAAAOABkAAAACAAQAAAAOABgAAAACAAQAAAAOABcAAAACAAQAAAAPABYAAAACAAQAAAAOABUAAAACAAQAAAAPABUAAAACAAQAAAAQABYAAAACAAQAAAAQABcAAAACAAQAAAAQABgAAAACAAQAAAAQABkAAAACAAQAAAAPABkAAAACAAQAAAAPABoAAAACAAQAAAAPABsAAAACAAQAAAAQABoAAAACAAQAAAAQABsAAAACAAQAAAASAAgAAAAAAAIAAAAaACQAAAAAAAIAAAAOADUAAAAAAAIAAAAKADMAAAACAAIAAAAEACoAAAACAAQAAAAHACwAAAACAAQAAAALACgAAAACAAQAAAAFACcAAAABAAIAAAAJACcAAAABAAIAAAAOABAAAAACAAQAAAAEAAsAAAABAAAAAAAEABkAAAABAAAAAAAEADEAAAABAAAAAAANAD0AAAABAAAAAAAVADoAAAABAAAAAAARADwAAAAAAAAAAAAIADQAAAAAAAAAAAADACcAAAAAAAAAAAAFAA0AAAAAAAAAAAADAAYAAAAAAAAAAAAYAD0AAAAAAAAAAAANABEAAAACAAQAAAANABIAAAACAAQAAAAMABMAAAACAAQAAAAMABIAAAACAAQAAAALABMAAAACAAQAAAALABIAAAACAAQAAAALABEAAAACAAQAAAALABAAAAACAAQAAAAKAA8AAAACAAQAAAAKAA4AAAACAAQAAAAJAA8AAAACAAQAAAAJABAAAAACAAQAAAAJABEAAAACAAQAAAAKABAAAAACAAQAAAAKABEAAAACAAQAAAAKABMAAAACAAQAAAAKABIAAAACAAQAAAAKAA0AAAACAAQAAAALAAwAAAACAAQAAAALAAsAAAACAAQAAAAMAAoAAAACAAQAAAAMAAsAAAACAAQAAAANAAoAAAACAAQAAAANAAsAAAACAAQAAAAOAAwAAAACAAQAAAANAA0AAAACAAQAAAANAA4AAAACAAQAAAANAA8AAAACAAQAAAAOAA4AAAACAAQAAAANABAAAAACAAQAAAAMABEAAAACAAQAAAAUAAoAAAACAAQAAAATAAkAAAACAAQAAAAUAAsAAAACAAQAAAAUAAwAAAACAAQAAAAUAA0AAAACAAQAAAAUAA4AAAACAAQAAAAUAA8AAAACAAQAAAAVAA4AAAACAAQAAAAVAA0AAAACAAQAAAAWAA4AAAACAAQAAAAWAA0AAAACAAQAAAAXAA4AAAACAAQAAAAWAA8AAAACAAQAAAAVAA8AAAACAAQAAAAXAA0AAAACAAQAAAAXAAwAAAACAAQAAAAXAAsAAAACAAQAAAAYAAoAAAACAAQAAAAXAAkAAAACAAQAAAAXAAgAAAACAAQAAAAWAAkAAAACAAQAAAAWAAoAAAACAAQAAAAWAAsAAAACAAQAAAAWAAwAAAACAAQAAAAWABAAAAACAAQAAAAWABEAAAACAAQAAAAXABIAAAACAAQAAAAWABwAAAACAAQAAAAVAB0AAAACAAQAAAAWAB4AAAACAAQAAAAVAB8AAAACAAQAAAAWACAAAAACAAQAAAAWACEAAAACAAQAAAAXACIAAAACAAQAAAAXACMAAAACAAQAAAAYACIAAAACAAQAAAAYACEAAAACAAQAAAAZACIAAAACAAQAAAAYACMAAAACAAQAAAAZACQAAAACAAQAAAAZACEAAAACAAQAAAAZACAAAAACAAQAAAAZAB8AAAACAAQAAAAaAB4AAAACAAQAAAAZAB0AAAACAAQAAAAXACEAAAACAAQAAAAXACAAAAACAAQAAAAWAB8AAAACAAQAAAAXAB4AAAACAAQAAAAYACQAAAACAAQAAAAXACQAAAACAAQAAAAWACMAAAACAAQAAAAVAB4AAAACAAQAAAAUABwAAAACAAIAAAAXABgAAAACAAAAAAAEAAUAAAACAAAAAAAKAP//AAACAAAAAAATAA0AAAABAAAAAAASABQAAAAAAAAAAAAYACgAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ym578")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="level"]
+[node name="Chikis" type="TileMapLayer" parent="level"]
 tile_map_data = PackedByteArray("AAAbAMEAAAACAAIAAAAtAMsAAAACAAIAAAATALUAAAACAAIAAAAIAIoAAAACAAIAAAAFAFwAAAACAAIAAAAsAJYAAAACAAIAAAAaAHMAAAACAAIAAAAgAFMAAAACAAIAAAAPAGQAAAABAAIAAAAJAE4AAAABAAIAAAAOAHwAAAABAAIAAAAvAKMAAAABAAIAAAA0AMMAAAABAAIAAAAeAKcAAAABAAIAAAASALAAAAAAAAIAAAALAJAAAAAAAAIAAAAUAG0AAAAAAAIAAAApAEsAAAAAAAIAAAAEAEcAAAAAAAIAAABAAHIAAAAAAAIAAAA9AEgAAAAAAAIAAAA3AFwAAAABAAAAAABAAGQAAAABAAAAAAA1AIUAAAABAAAAAAAkAKwAAAABAAAAAAAzAMYAAAABAAAAAAAYAJ0AAAABAAAAAAAMALIAAAABAAAAAAAMAJUAAAABAAAAAAAYAIEAAAABAAAAAAAPAGwAAAABAAAAAAANAFYAAAABAAAAAAAHAFAAAAAAAAAAAAAWAFwAAAAAAAAAAAAwAF0AAAAAAAAAAAA6AEYAAAAAAAAAAAA+AFEAAAAAAAAAAAA3AJQAAAAAAAAAAAAnAKcAAAAAAAAAAAAkAMcAAAAAAAAAAAASALQAAAACAAAAAAAIAKUAAAACAAAAAAAVAIsAAAACAAAAAAAOAGYAAAACAAAAAAAEAFgAAAACAAAAAAAYAEsAAAACAAAAAAAxAFUAAAACAAAAAAA9AGQAAAACAAAAAAA4AIoAAAACAAAAAAA0ALAAAAACAAAAAAAzAMwAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_irb4c")
 
+[node name="Banda" type="Sprite2D" parent="level"]
+texture_filter = 1
+position = Vector2(1730, 2260)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_lfcvx")
+
+[node name="NPC" type="Area2D" parent="level"]
+position = Vector2(2560, 1901)
+script = ExtResource("16_mhk04")
+
+[node name="Sprite2D" type="Sprite2D" parent="level/NPC"]
+texture_filter = 1
+texture = ExtResource("17_d8hax")
+hframes = 18
+vframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level/NPC"]
+position = Vector2(-3.524, 21.6775)
+shape = SubResource("RectangleShape2D_vv8sl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level/NPC"]
+libraries = {
+&"": SubResource("AnimationLibrary_iog3o")
+}
+autoplay = "idle"
+
 [node name="music_track" parent="." instance=ExtResource("9_mhk04")]
+
+[connection signal="body_entered" from="level/NPC" to="level/NPC" method="_on_body_entered"]

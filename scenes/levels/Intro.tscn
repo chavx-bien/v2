@@ -1,143 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqjxhlcvohevs"]
+[gd_scene load_steps=5 format=3 uid="uid://cqjxhlcvohevs"]
 
-[ext_resource type="Texture2D" uid="uid://cf8r2x33ogk6n" path="res://textures/misc/splash.png" id="1_826t1"]
-[ext_resource type="AudioStream" uid="uid://bub2p8fvv46yx" path="res://music/logo.wav" id="4"]
+[ext_resource type="Script" uid="uid://babvpd7chxedb" path="res://scenes/levels/intro.gd" id="1_k14st"]
+[ext_resource type="VideoStream" uid="uid://dso08rjprofhi" path="res://textures/videos/Intro.ogv" id="2_3ay2f"]
+[ext_resource type="Texture2D" uid="uid://cjgcnrp33o4yc" path="res://textures/menu/saltarintro.png" id="3_3ay2f"]
 
-[sub_resource type="Animation" id="1"]
-resource_name = "Intro"
-length = 2.5
-step = 0.01
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("logo")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 1.13921,
-"start_offset": 0.0,
-"stream": ExtResource("4")
-}],
-"times": PackedFloat32Array(0.03)
-}
-tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.99, 2.24),
-"transitions": PackedFloat32Array(0.5, 0.5, 1),
-"update": 0,
-"values": [Color(0.820269, 0.23162, 0.808419, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("logo-bg:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.47, 1.55, 1.6, 1.66),
-"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(212, 491), Vector2(212, 491), Vector2(212, 109), Vector2(141, 64), Vector2(212, 109)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("logo-bg:rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.47, 1.55, 1.6, 1.66),
-"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0, 0.0, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("logo-bg:size")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.47, 1.55, 1.6, 1.66),
-"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(600, 0), Vector2(600, 0), Vector2(600, 382), Vector2(742, 472), Vector2(600, 382)]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ay2f"]
+size = Vector2(200, 90)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_riwan"]
-_data = {
-&"Intro": SubResource("1")
-}
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_k14st")
 
-[sub_resource type="GDScript" id="2"]
-script/source = "extends AnimationPlayer
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -641.0
+offset_top = -366.0
+offset_right = 639.0
+offset_bottom = 354.0
+stream = ExtResource("2_3ay2f")
+autoplay = true
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(389, 209)
+texture_normal = ExtResource("3_3ay2f")
+shape = SubResource("RectangleShape2D_3ay2f")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_anims_animation_finished(_anim_name):
-	get_tree().change_scene_to_file(\"res://scenes/levels/Menu.tscn\")
-	pass # Replace with function body.
-"
-
-[node name="Intro" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 1.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0, 0, 0, 1)
-
-[node name="logo-bg" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -364.0
-offset_top = -215.0
-offset_right = 236.0
-offset_bottom = 167.0
-texture = ExtResource("1_826t1")
-expand_mode = 1
-
-[node name="logo" type="AudioStreamPlayer" parent="."]
-
-[node name="anims" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_riwan")
-}
-autoplay = "Intro"
-script = SubResource("2")
-
-[connection signal="animation_finished" from="anims" to="anims" method="_on_anims_animation_finished"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
