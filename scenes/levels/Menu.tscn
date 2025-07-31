@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmh38ci2s0g67"]
+[gd_scene load_steps=11 format=3 uid="uid://bmh38ci2s0g67"]
 
 [ext_resource type="Texture2D" uid="uid://swcsvogvp5xy" path="res://textures/menu/chavosbien.png" id="2_7re23"]
 [ext_resource type="FontFile" uid="uid://dhp0b5qulrr1o" path="res://fonts/PF Pixelscript Pro Regular.ttf" id="3_re47u"]
@@ -25,10 +25,83 @@ func _on_new_game_pressed():
 	pass # Replace with function body.
 "
 
+[sub_resource type="Animation" id="Animation_re47u"]
+resource_name = "comenzar"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dex4k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e3kp8"]
+_data = {
+&"RESET": SubResource("Animation_dex4k"),
+&"comenzar": SubResource("Animation_re47u")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_a6m44"]
 font = ExtResource("3_re47u")
 font_size = 22
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_a6m44"]
+resource_name = "intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7re23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_re47u"]
+_data = {
+&"RESET": SubResource("Animation_7re23"),
+&"intro": SubResource("Animation_a6m44")
+}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -79,6 +152,12 @@ text = "Comenzar"
 flat = true
 icon_alignment = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="new_game"]
+libraries = {
+&"": SubResource("AnimationLibrary_e3kp8")
+}
+autoplay = "comenzar"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -98,5 +177,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+&"": SubResource("AnimationLibrary_re47u")
+}
+autoplay = "intro"
 
 [connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]

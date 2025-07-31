@@ -1,6 +1,6 @@
 extends Area2D
 
-const NIVEL_2 = "res://scenes/levels/nivel_2.tscn"
+const NIVEL_2 = "res://scenes/levels/Outro.tscn"
 
 
 func _on_body_entered(body):

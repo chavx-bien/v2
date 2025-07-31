@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cc5cdde18lkub"]
+
+[node name="CoinLabel" type="Label"]
+text = "Ingredientes 0"

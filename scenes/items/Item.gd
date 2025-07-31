@@ -1,5 +1,6 @@
 extends Area2D
 
+
 @export var item_type: String = "Generic Item"
 @export var amount: int = 1
 @export var ingredientes: Array = ["Vaso", "Coca", "Hielo", "Bacardi", "Mineral", "Flecha"]
@@ -26,25 +27,26 @@ func _on_Item_body_entered(body):
 	ingrediente = self.name
 	if body is Player:
 		body_entered.disconnect(_on_Item_body_entered)
-		match ingrediente:
-			"Vaso":
-				Dialogs.show_dialog("Vaso muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
-				Dialogs.dialog_ended
-			"Coca":
-				Dialogs.show_dialog("Coca muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
-				Dialogs.dialog_ended
-			"Hielo":
-				Dialogs.show_dialog("Hielo muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
-				Dialogs.dialog_ended
-			"Bacardi":
-				Dialogs.show_dialog("Bacardi muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
-				Dialogs.dialog_ended
-			"Mineral":
-				Dialogs.show_dialog("Mineral muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
-				Dialogs.dialog_ended
+		#match ingrediente:
+		#	"Vaso":
+		#		Dialogs.show_dialog("Vaso muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
+		#		Dialogs.dialog_ended
+		#	"Coca":
+		#		Dialogs.show_dialog("Coca muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
+		#		Dialogs.dialog_ended
+		#	"Hielo":
+		#		Dialogs.show_dialog("Hielo muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
+		#		Dialogs.dialog_ended
+		#	"Bacardi":
+		#		Dialogs.show_dialog("Bacardi muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
+		#		Dialogs.dialog_ended
+		#	"Mineral":
+		#		Dialogs.show_dialog("Mineral muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto muchotexto", "")
+		#		Dialogs.dialog_ended
 					
 		#Dialogs.show_dialog("", "")
 		#Dialogs.dialog_ended
 		Inventory.add_item(ingrediente)
 		$anims.play("collected")
 	pass
+	#
