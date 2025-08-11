@@ -9,9 +9,13 @@
 export.cfg
 export_presets.cfg
 *.godot
-*.import
-**/*.import
 
 # Mono-specific ignores
 .mono/
 build/
+textures/flecha2.png.import
+textures/ITEMS/BACARDI.png.import
+textures/ITEMS/COCA.png.import
+textures/ITEMS/HIELO.png.import
+fonts/PF Pixelscript Pro Regular.ttf.import
+*.import

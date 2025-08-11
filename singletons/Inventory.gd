@@ -35,52 +35,47 @@ func add_item(ingrediente:String) -> bool:
 		coins_label.text = "Ingredientes " + str(inventory)
 	else:
 		print("ERROR: coins_label is still null in add_item! Cannot update UI. Has the main scene set the reference?")
-		# You might want to return false here or handle the error gracefully
 		return false 
 	
 	if inventory == 1:
-		Dialogs.show_dialog("no hay fuerza militar imperialista
-		que pueda detener mi peda...
-		ser un chavo bien
-		es un acto #político", "")
-		# Dialogs.dialog_ended is a signal, not a function.
-		# If you need to wait for the dialog to finish, you'd use 'await Dialogs.dialog_ended'
-		# (assuming Dialogs emits that signal when it's done).
-		pass 
+		Dialogs.show_dialog("""no hay fuerza militar imperialista
+que pueda detener mi peda...
+ser un chavo bien
+es un acto #político""", "")
+		
 	if inventory == 2:
-		Dialogs.show_dialog("tengo que brindar por
-		toda la gente que murió hoy.
-		esto ya no solo se trata
-		sobre mí......", "")
-		pass
+		Dialogs.show_dialog("""tengo que brindar por
+toda la gente que murió hoy.
+esto ya no solo se trata
+sobre mí......""", "")
+		
 	if inventory == 3:
-		Dialogs.show_dialog("será que toda esta destrucción
-		es tan solo una metáfora de lo que sucede
-		dentro de mi jodido mundo interno?
-		...
-		...
-		...
-		...
-		nah no creo", "")
-		pass
+		Dialogs.show_dialog("""será que toda esta destrucción
+es tan solo una metáfora de lo que sucede
+dentro de mi jodido mundo interno?
+...
+...
+...
+...
+nah no creo""", "")
+		
 	if inventory == 4:
-		Dialogs.show_dialog("embeses solo somos mi cubita,
-		la música y yo
-		contra este fokin world
-		...
-		...
-		no lo entenderías...........", "")
-		pass
+		Dialogs.show_dialog("""embeses solo somos mi cubita,
+la música y yo
+contra este fokin world
+...
+...
+no lo entenderías...........""", "")
+		
 	if inventory == 5:
 		print("Trigger Scene")
 		var object = flecha.instantiate()
 		object.position = Vector2(1713, 3379)
 		get_parent().add_child(object)
 
-		Dialogs.show_dialog("a huevo!
-		ahora sí, me la pela el fin del mundo
-		solo necesito volver a mi yate", "")
-		pass # Same as above, Dialogs.dialog_ended is a signal.
+		Dialogs.show_dialog("""a huevo!
+ahora sí, me la pela el fin del mundo
+solo necesito volver a mi yate""", "")
 	
 	print(inventory)
 	return true
