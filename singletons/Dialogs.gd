@@ -24,6 +24,7 @@ var dialog_box = null: set = _set_dialog_box
 
 func show_dialog(text:String, speaker:String):
 	if is_instance_valid(dialog_box):
+		#print(text)
 		dialog_box.show_dialog(text, speaker)
 
 func _set_dialog_box(node):
