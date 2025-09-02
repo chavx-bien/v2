@@ -2,11 +2,9 @@ extends TextureRect
 class_name DialogBox
 
 @onready var dialog_text = $dialog_text
-@onready var lines_per_page = 2   # two lines per page
-@onready var chars_per_line = 40  # adjust based on font size & label width
-
-var pages: Array = []
-var current_page = 0
+@onready var lines_per_page = 0
+@onready var current_page = 0
+@onready var pages: Array = []
 
 signal dialog_started
 signal dialog_ended
@@ -16,18 +14,20 @@ func _ready() -> void:
 	hide()
 
 func show_dialog(new_text: String, speaker: String) -> void:
+	# Reset paging
 	current_page = 0
+	lines_per_page = dialog_text.get_visible_line_count()
+
+	# Pre-split text into pages
+	var all_lines = new_text.split("\n")
 	pages.clear()
+	for i in range(0, all_lines.size(), lines_per_page):
+		pages.append("\n".join(all_lines.slice(i, i + lines_per_page)))
+
+	# Show first page
 	$nametag/label.text = speaker
-
-	# Split text into pages
-	var index = 0
-	while index < new_text.length():
-		var page_text = new_text.substr(index, chars_per_line * lines_per_page)
-		pages.append(page_text)
-		index += page_text.length()
-
 	show_page()
+
 	$anims.play("appear")
 
 func show_page() -> void:
