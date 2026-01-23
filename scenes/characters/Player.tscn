@@ -887,7 +887,7 @@ autoplay = "reset"
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(6.302, -6.974)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(4, 4)
 
 [node name="debug" parent="." instance=ExtResource("3")]
 path_to_node = NodePath("..")
